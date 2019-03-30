@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const TurndownService = require('turndown');
-const turndownService = new TurndownService()
+const turndownService = new TurndownService({ codeBlockStyle: 'fenced' });
 
 let posts = [];
 
