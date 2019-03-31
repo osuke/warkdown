@@ -1,3 +1,4 @@
+import path from 'path';
 import TurndownService from 'turndown';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -5,6 +6,8 @@ import fs from 'fs';
 const turndownService = new TurndownService({ codeBlockStyle: 'fenced' });
 
 const fetchContent = (url, outputDir, pageNum = 1) => {
+  const dirPath = path.resolve(__dirname, outputDir);
+
   fetch(`${url}?page=${pageNum}`, {})
     .then(res => {
       return res.json();
@@ -16,16 +19,16 @@ const fetchContent = (url, outputDir, pageNum = 1) => {
       }
 
       try {
-        fs.statSync(outputDir);
+        fs.statSync(dirPath);
       } catch(err) {
-        fs.mkdir(outputDir, () => {});
+        fs.mkdir(dirPath, () => {});
       }
 
       json.map(post => {
         const mdText = turndownService.turndown(`<h1>${post.title.rendered}</h1>${post.content.rendered}`);
 
-        fs.mkdir(`${outputDir}/${post.id}`, () => {
-          fs.writeFile(`${outputDir}/${post.id}/README.md`, mdText, () => {});
+        fs.mkdir(`${dirPath}/${post.id}`, () => {
+          fs.writeFile(`${dirPath}/${post.id}/README.md`, mdText, () => {});
         });
       });
 
