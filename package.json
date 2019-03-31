@@ -1,7 +1,8 @@
 {
   "name": "warkdown",
   "version": "0.1.0",
-  "description": "",
+  "description": "A cli tool for generating markdown files by using WP REST API",
+  "homepage": "https://github.com/osuke/warkdown",
   "main": "lib/index.js",
   "bin": {
     "warkdown": "lib/cli.js"
@@ -9,8 +10,12 @@
   "scripts": {
     "build": "babel src --out-dir lib --extensions \".ts\""
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Markdown",
+    "WordPress",
+    "WP REST API"
+  ],
+  "author": "osuke",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.2.3",

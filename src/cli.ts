@@ -11,4 +11,6 @@ program
 
 if (program.entry) {
   fetchContent(program.entry, program.output)
+} else {
+  console.log('-e option is require');
 }
