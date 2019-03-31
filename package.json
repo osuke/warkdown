@@ -1,15 +1,29 @@
 {
-  "name": "wp2md",
-  "version": "1.0.0",
+  "name": "warkdown",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "bin": {
+    "warkdown": "lib/cli.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir lib --extensions \".ts\""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/preset-env": "^7.4.1",
+    "@babel/preset-typescript": "^7.3.2",
+    "@types/turndown": "^5.0.0",
+    "typescript": "^3.3.3"
+  },
   "dependencies": {
+    "commander": "^2.19.0",
     "node-fetch": "^2.3.0",
     "turndown": "^5.0.3"
   }
