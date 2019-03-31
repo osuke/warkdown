@@ -6,7 +6,8 @@ import fs from 'fs';
 const turndownService = new TurndownService({ codeBlockStyle: 'fenced' });
 
 const fetchContent = (url, outputDir, pageNum = 1) => {
-  const dirPath = path.resolve(__dirname, outputDir);
+  const currentPath = process.cwd();
+  const dirPath = path.resolve(currentPath, outputDir);
 
   fetch(`${url}?page=${pageNum}`, {})
     .then(res => {
